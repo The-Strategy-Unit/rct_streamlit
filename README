@@ -1,0 +1,5 @@
+Basic Streamlit frontend for sending emails to pairs of people.
+
+Companion repository: rct_api which is a Flask API.
+
+You will need to set APP_URL as an environment variable.
