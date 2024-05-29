@@ -15,7 +15,9 @@ file = st.file_uploader("Upload spreadsheet", type="csv")
 if file is not None:
     df = pd.read_csv(file)
     st.write(df)
-    json_to_submit = df.to_json(orient="records")
+    data_to_submit = df.to_json(orient="records")
+    json_to_submit = {'key': os.getenv('API_KEY'),
+                      'data': data_to_submit}
     if st.button("Submit emails"):
         response = requests.post(app_url, json=json_to_submit, timeout=120)
         st.write(response.text)
